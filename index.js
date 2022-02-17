@@ -1,0 +1,2 @@
+let correctOrder = [];
+let humanOrder =[];
