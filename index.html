@@ -27,13 +27,36 @@
     <!-- Game Area -->
     <div class="game-area">
       <!-- Settings and instructions buttons -->
+
       <div class="button-row">
         <button class="setting-button grow" id="gear">
           <i class="fa-solid fa-gear fa-2x"></i>
         </button>
-        <button class="setting-button grow" id="question">
+        <!-- settings modal -->
+        <div class="modal" id="setting-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>Settings</h1>
+              <button class="close">X</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="setting-button grow" id="tutBtn">
           <i class="fa-solid fa-circle-question fa-2x"></i>
         </button>
+        <!-- tutorial modal -->
+        <div class="modal" id="tutorial-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>Instructions: How to Play</h1>
+              <button class="close">X</button>
+            </div>
+            Tutorial
+          </div>
+        </div>
+        <!-- adding Settings script -->
+        <script src="js/settings.js"></script>
         <button class="setting-button grow" id="bell">
           <i class="fa-solid fa-bell fa-2x"></i>
         </button>

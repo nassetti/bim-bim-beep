@@ -24,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .logo {
@@ -81,7 +82,7 @@ body {
   align-items: center;
 }
 
-/* settings buttons */
+/* settings buttons and modals */
 .button-row {
   position: absolute;
   top: 1rem;
@@ -94,6 +95,49 @@ body {
   padding: 0.3rem;
 }
 
+button:hover, button:focus {
+  outline: none;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  background-color: aliceblue;
+  width: 30vw;
+  height: 30vh;
+  top:40%;
+  left: 10%
+}
+.modal-content {
+  padding: 0.5rem;
+  z-index: inherit;
+
+}
+
+.modal-header {
+  display: flex;
+  background-color: tomato;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: inherit;
+  z-index: inherit;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 /* hover grow from: https://travis.media/how-to-make-an-item-grow-on-hover-with-css/ */
 .grow {
   transition: all 0.2s ease-in-out;
