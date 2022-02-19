@@ -91,6 +91,7 @@ body {
 .setting-button {
   background-color: transparent;
   border-width: 0;
+  padding: 0.3rem;
 }
 
 /* hover grow from: https://travis.media/how-to-make-an-item-grow-on-hover-with-css/ */
@@ -108,16 +109,11 @@ body {
   padding: 2rem;
 }
 
-/* style rules for settings buttons */
-
-.setting-button {
-  padding: 0.3rem;
-}
 /* setting colours for arrow buttons */
 #up {
   background-color: red;
 }
-#left {
+  #left {
   background-color: green;
 }
 #down {
