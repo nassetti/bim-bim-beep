@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/0314239755.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <header class="logo">
-        <h1 id="b">B<span id="e1">E</span><span id="e2">E</span><span id="p">P</span></h1>
+      <h1 id="b">
+        B<span id="e1">E</span><span id="e2">E</span><span id="p">P</span>
+      </h1>
     </header>
 
     <div class="game-area">
-        <div class="interaction-area">
-            <div class="row">up</div>
-            <div class="row lower">
-                <div class="button">left</div>
-                <div class="button">down</div>
-                <div class="button">right</div>
-            </div>
+      <div class="button-row">
+        <i class="fa-solid fa-gear" id="gear"></i>
+        <i class="fa-solid fa-circle-question" id="question"></i>
+      </div>
+      <div class="interaction-area">
+        <div class="row upper arrow-button">
+            <i class="fa-solid fa-arrow-up"></i>
         </div>
+        <div class="row lower">
+          <div class="arrow-button">
+            <i class="fa-solid fa-arrow-left"></i>
+          <div class="arrow-button">
+            <i class="fa-solid fa-arrow-down"></i>
+          </div>
+          <div class="arrow-button">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
