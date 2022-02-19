@@ -1,2 +1,0 @@
-let correctOrder = [];
-let humanOrder =[];
