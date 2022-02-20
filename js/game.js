@@ -9,7 +9,7 @@ let left = document.getElementById("left");
 let upBtn = document.getElementById("up-button");
 let rightBtn = document.getElementById("right-button");
 let downBtn = document.getElementById("down-button");
-let leftBtm = document.getElementById("left-button");
+let leftBtn = document.getElementById("left-button");
 
 // testing link
 upBtn.addEventListener("click", () => {
