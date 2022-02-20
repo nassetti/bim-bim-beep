@@ -13,15 +13,15 @@ let leftBtn = document.getElementById("left-button");
 
 // testing link
 upBtn.addEventListener("click", () => {
-  console.log("clicked question");
+  console.log("clicked up");
 });
 leftBtn.addEventListener("click", () => {
-  console.log("clicked question");
+  console.log("clicked left");
 });
 downBtn.addEventListener("click", () => {
-  console.log("clicked question");
+  console.log("clicked down");
 });
 rightBtn.addEventListener("click", () => {
-  console.log("clicked question");
+  console.log("clicked right");
 });
 // adding start functionality
