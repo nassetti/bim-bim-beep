@@ -1,13 +1,15 @@
 // Adapted from code from: https://www.w3schools.com/howto/howto_css_modals.asp
 console.log("i am connected");
-var soundBtn = document.getElementById("bell");
-var gearBtn = document.getElementById("gear");
-var tutorialBtn = document.getElementById("tutBtn");
+let soundBtn = document.getElementById("bell");
+let gearBtn = document.getElementById("gear");
+let tutorialBtn = document.getElementById("tutBtn");
 
-var settingModal = document.getElementById("setting-modal");
-var tutorialModal = document.getElementById("tutorial-modal");
-var close = document.getElementsByClassName("close")[0];
-var modals = document.getElementsByClassName("modal")[0];
+let settingModal = document.getElementById("setting-modal");
+let tutorialModal = document.getElementById("tutorial-modal");
+let closeTut = document.getElementById("close-tut");
+let closeSetting = document.getElementById("close-setting");
+// let close = document.getElementsByClassName("close")[0];
+let modals = document.getElementsByClassName("modal")[0];
 
 tutorialBtn.addEventListener("click", () => {
     tutorialModal.style.display = "block";
@@ -15,14 +17,19 @@ tutorialBtn.addEventListener("click", () => {
   });
 
 gearBtn.addEventListener("click", () => {
-    tutorialModal.style.display = "block";
+    settingModal.style.display = "block";
     console.log("clicked gear");
   });
 
 
-close.addEventListener("click", () => {
-  modals.style.display = "none";
-  console.log("clicked X")
+closeTut.addEventListener("click", () => {
+  tutorialModal.style.display = "none";
+  console.log("clicked X on tutorial")
+});
+
+closeSetting.addEventListener("click", () => {
+  settingModal.style.display = "none";
+  console.log("clicked X on setting")
 });
 
 window.onclick = function (event) {
