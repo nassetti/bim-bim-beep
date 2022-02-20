@@ -8,7 +8,6 @@ let settingModal = document.getElementById("setting-modal");
 let tutorialModal = document.getElementById("tutorial-modal");
 let closeTut = document.getElementById("close-tut");
 let closeSetting = document.getElementById("close-setting");
-// let close = document.getElementsByClassName("close")[0];
 let modals = document.getElementsByClassName("modal")[0];
 
 tutorialBtn.addEventListener("click", () => {
