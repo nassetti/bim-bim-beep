@@ -168,6 +168,10 @@ button:hover, button:focus {
   background-color: yellow;
 }
 
+.father-button {
+  background-color: transparent;
+  border-style: none;
+}
 /* style for start button */
 #start-button {
   font-size: 2rem;
