@@ -104,10 +104,10 @@ button:hover, button:focus {
   position: fixed;
   z-index: 5;
   background-color: aliceblue;
-  width: 30vw;
-  height: 30vh;
-  top:40%;
-  left: 10%
+  width: 60vw;
+  height: 75vh;
+  top:20%;
+  left: 20%;
 }
 .modal-content {
   padding: 0.5rem;
@@ -182,4 +182,9 @@ button:hover, button:focus {
   flex-direction: column;
   justify-items: center;
   align-items: center;
+}
+
+/*  style for active buttons */
+.active-red {
+  background-color: white;
 }
