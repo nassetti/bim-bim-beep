@@ -188,3 +188,8 @@ button:hover, button:focus {
 .active-red {
   background-color: white;
 }
+
+/* adding hidden class */
+.hidden {
+  display: hidden;
+}
