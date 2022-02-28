@@ -37,7 +37,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1>Settings</h1>
-              <button class="close" id="close-setting">X</button>
+              <button class="close" id="close-setting"><i class="fa-solid fa-xmark"></i></button>
             </div>
           </div>
         </div>
@@ -50,16 +50,19 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1>Instructions: How to Play</h1>
-              <button class="close" id="close-tut">X</button>
+              <button class="close" id="close-tut"><i class="fa-solid fa-xmark"></i></button>
             </div>
             Tutorial
           </div>
         </div>
-        <!-- adding Settings script -->
-        <script src="js/settings.js"></script>
         <button class="setting-button grow" id="bell">
           <i class="fa-solid fa-bell fa-2x"></i>
         </button>
+        <button class="setting-button grow" id="trophy">
+            <i class="fa-solid fa-trophy fa-2x"></i>
+        </button>
+        <!-- adding Settings script -->
+        <script src="js/settings.js"></script>
       </div>
       <!-- Virtual arrowkeys area -->
       <div class="arrow-area">
@@ -94,5 +97,24 @@
         <button id="start-button">ENTER / START</button>
       </div>
     </div>
+
+    <!-- sounds area adapted from: https://github.com/Freshman-tech/simon-game-starter-files/blob/master/index.html and sounds from FreeCodeCamp -->
+    <div class="hidden">
+      <audio
+        src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
+        data-sound="up"
+      ></audio>
+      <audio
+        src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
+        data-sound="left"
+      ></audio>
+      <audio
+        src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
+        data-sound="down"
+      ></audio>
+      <audio
+        src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+        data-sound="right"
+      ></audio>
   </body>
 </html>
