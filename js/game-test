@@ -1,0 +1,89 @@
+let sequence = [];
+let humanSequence = [];
+let level = 0;
+
+const startButton = document.querySelector(".js-start");
+const resetBtn = document.querySelector(".js-reset");
+const arrowDirection = document.querySelector(".arrow-area");
+
+function resetGame(text) {
+  sequence = [];
+  humanSequence = [];
+  level = 0;
+  startButton.classList.remove("hidden");
+}
+
+function activate(direction) {
+  const direction = document.querySelector(`[data-direction='${direction}']`);
+  const sound = document.querySelector(`[data-sound='${direction}']`);
+
+  direction.classList.add("activated");
+  sound.play();
+
+  setTimeout(() => {
+    direction.classList.remove("activated");
+  }, 300);
+}
+
+function playRound(nextSequence) {
+  nextSequence.forEach((direction, index) => {
+    setTimeout(() => {
+      activate(direction);
+    }, (index + 1) * 600);
+  });
+}
+
+function nextStep() {
+  const directions = ["up", "left", "down", "right"];
+  const random = directions[Math.floor(Math.random() * directions.length)];
+
+  return random;
+}
+
+function nextRound() {
+  level += 1;
+  const nextSequence = [...sequence];
+  nextSequence.push(nextStep());
+  playRound(nextSequence);
+
+  sequence = [...nextSequence];
+  setTimeout(() => {
+    humanTurn(level);
+  }, level * 600 + 1000);
+}
+
+function handleClick(direction) {
+  const index = humanSequence.push(direction) - 1;
+  const sound = document.querySelector(`[data-sound='${direction}']`);
+  sound.play();
+
+  if (humanSequence[index] !== sequence[index]) {
+    resetGame("Oops! Game over, you pressed the wrong button");
+    return;
+  }
+
+  if (humanSequence.length === sequence.length) {
+    if (humanSequence.length === 20) {
+      resetGame("Congrats! You completed all the levels");
+      return;
+    }
+
+    humanSequence = [];
+    setTimeout(() => {
+      nextRound();
+    }, 1000);
+    return;
+  }
+}
+
+function startGame() {
+  startButton.classList.add("hidden");
+  nextRound();
+}
+
+startButton.addEventListener("click", startGame());
+arrow.addEventListener("click", (event) => {
+  const { direction } = event.target.dataset;
+
+  if (direction) handleClick(direction);
+});
