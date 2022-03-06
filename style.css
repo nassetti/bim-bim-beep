@@ -96,7 +96,8 @@ body {
   padding: 0.3rem;
 }
 
-button:hover, button:focus {
+button:hover,
+button:focus {
   outline: none;
 }
 .modal {
@@ -105,14 +106,13 @@ button:hover, button:focus {
   z-index: 5;
   background-color: aliceblue;
   width: 60vw;
-  height: 75vh;
-  top:20%;
+  height: 80vh;
+  top: 15%;
   left: 20%;
 }
 .modal-content {
   padding: 0.5rem;
   z-index: inherit;
-
 }
 
 .modal-header {
@@ -158,7 +158,7 @@ button:hover, button:focus {
 #up {
   background-color: red;
 }
-  #left {
+#left {
   background-color: green;
 }
 #down {
@@ -172,11 +172,38 @@ button:hover, button:focus {
   background-color: transparent;
   border-style: none;
 }
-/* style for start button */
+
+/* style for level counter */
+#level-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#level {
+  border: 0.25rem;
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  background-color: bisque;
+  width: 3rem;
+  height: 1.5rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#level-text {
+  font-weight: bold;
+}
+/* style for start and reset button */
 #start-button {
   font-size: 2rem;
 }
-
+#reset-button {
+  font-size: 2rem;
+}
 .start {
   display: flex;
   flex-direction: column;
@@ -185,11 +212,18 @@ button:hover, button:focus {
 }
 
 /*  style for active buttons */
-.active-red {
-  background-color: white;
+.activated {
+  /* background-color: white !important; */
+  box-shadow: 0 0 50px 1.5rem white !important;
 }
 
-/* adding hidden class */
+
+/* adding hidden and visible class */
 .hidden {
-  display: hidden;
+  display: none;
+}
+
+/* adding tranlucent class */
+.translucent {
+  opacity: 0.3;
 }

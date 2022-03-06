@@ -1,6 +1,7 @@
 // Adapted from code from: https://www.w3schools.com/howto/howto_css_modals.asp
 console.log("i am connected");
 let soundBtn = document.getElementById("bell");
+let soundIcon = document.getElementById("bell-icon")
 let gearBtn = document.getElementById("gear");
 let tutorialBtn = document.getElementById("tutBtn");
 
@@ -37,3 +38,14 @@ window.onclick = function (event) {
     console.log("clicked outside")
   }
 };
+
+if (soundIcon.classList.contains("translucent") = true) {
+  soundBtn.addEventListener("click", () => {
+    soundIcon.classList.remove("translucent");
+  })
+}
+else {
+  soundBtn.addEventListener("click", () => {
+    soundIcon.classList.add("translucent");
+  })
+}
