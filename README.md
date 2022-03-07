@@ -1,9 +1,10 @@
-# Working Title
-Tagline 
-
-## Concept
+# BEEP
+A simple Simon Game to help users practice their short-term memory skills. 
 
 ## Features
+* Tutorial Modal
+* Mute Button
+* 
 
 ## Testing
 
