@@ -20,7 +20,7 @@ const upIcon = document.querySelector("#up-icon");
 const leftIcon = document.querySelector("#left-icon");
 const downIcon = document.querySelector("#down-icon");
 const rightIcon = document.querySelector("#right-icon");
-const arrowArea = document.querySelector(".arrow-area")
+const arrowArea = document.querySelector(".arrow-area");
 
 const levelCounter = document.querySelector("#level");
 const info = document.querySelector(".js-info");
@@ -29,12 +29,11 @@ const info = document.querySelector(".js-info");
 var upSound = document.querySelector("#up-sound");
 var downSound = document.querySelector("#down-sound");
 var leftSound = document.querySelector("#left-sound");
-var rightSound = document.querySelector("#up-sound");
-
+var rightSound = document.querySelector("#right-sound");
 
 // adding button array
 buttons = ["up", "left", "down", "right"];
-// therefore, up = 0, left = 1, down = 2, right = 3 based on array maths. 
+// therefore, up = 0, left = 1, down = 2, right = 3 based on array maths.
 
 // adding start and reset functionality on click
 startBtn.addEventListener("click", () => {
@@ -54,27 +53,20 @@ resetBtn.addEventListener("click", () => {
 function reset() {
   win = false;
   order = [];
+  playerOrder = [];
   level = 0;
+  info.innerHTML = "Click START to play";
   levelCounter.innerHTML = 0;
+  console.log(order);
+  console.log(playerOrder);
 }
-
-// function setOrder() {
-//   for (var i = 0; i < 100; i++) {
-//     order.push(Math.floor(Math.random() * 4));
-//   }
-//   // delete below so user cannot see correct order
-//   console.log(order);
-// }
-
-// adding user click functionality
-
 function upClick() {
   upSound.play();
   upDiv.classList.add("activeUp");
   upIcon.classList.add("activeUp");
   upDiv.classList.add("activated");
-  console.log("upClick");
   playerOrder.push(0);
+  console.log(playerOrder);
   setTimeout(() => {
     upDiv.classList.remove("activeUp");
     upIcon.classList.remove("activeUp");
@@ -86,8 +78,8 @@ function leftClick() {
   leftDiv.classList.add("activeLeft");
   leftIcon.classList.add("activeLeft");
   leftDiv.classList.add("activated");
-  console.log("leftClick")
   playerOrder.push(1);
+  console.log(playerOrder);
   setTimeout(() => {
     leftDiv.classList.remove("activeLeft");
     leftIcon.classList.remove("activeLeft");
@@ -100,8 +92,8 @@ function downClick() {
   downDiv.classList.add("activeDown");
   downIcon.classList.add("activeDown");
   downDiv.classList.add("activated");
-  console.log("downClick");
   playerOrder.push(2);
+  console.log(playerOrder);
   setTimeout(() => {
     downDiv.classList.remove("activeDown");
     downIcon.classList.remove("activeDown");
@@ -114,8 +106,61 @@ function rightClick() {
   rightDiv.classList.add("activeRight");
   rightIcon.classList.add("activeRight");
   rightDiv.classList.add("activated");
-  console.log("rightClick");
   playerOrder.push(3);
+  console.log(playerOrder);
+  setTimeout(() => {
+    rightDiv.classList.remove("activeRight");
+    rightIcon.classList.remove("activeRight");
+    rightDiv.classList.remove("activated");
+  }, 300);
+}
+
+// adding computer "clicks"
+
+function upComputer() {
+  upSound.play();
+  upDiv.classList.add("activeUp");
+  upIcon.classList.add("activeUp");
+  upDiv.classList.add("activated");
+  console.log(order);
+  setTimeout(() => {
+    upDiv.classList.remove("activeUp");
+    upIcon.classList.remove("activeUp");
+    upDiv.classList.remove("activated");
+  }, 300);
+}
+function leftComputer() {
+  leftSound.play();
+  leftDiv.classList.add("activeLeft");
+  leftIcon.classList.add("activeLeft");
+  leftDiv.classList.add("activated");
+  console.log(order);
+  setTimeout(() => {
+    leftDiv.classList.remove("activeLeft");
+    leftIcon.classList.remove("activeLeft");
+    leftDiv.classList.remove("activated");
+  }, 300);
+}
+
+function downComputer() {
+  downSound.play();
+  downDiv.classList.add("activeDown");
+  downIcon.classList.add("activeDown");
+  downDiv.classList.add("activated");
+  console.log(order);
+  setTimeout(() => {
+    downDiv.classList.remove("activeDown");
+    downIcon.classList.remove("activeDown");
+    downDiv.classList.remove("activated");
+  }, 300);
+}
+
+function rightComputer() {
+  rightSound.play();
+  rightDiv.classList.add("activeRight");
+  rightIcon.classList.add("activeRight");
+  rightDiv.classList.add("activated");
+  console.log(order);
   setTimeout(() => {
     rightDiv.classList.remove("activeRight");
     rightIcon.classList.remove("activeRight");
@@ -141,28 +186,51 @@ function computerRound() {
   level += 1;
   levelCounter.innerHTML = level;
   order.push(Math.floor(Math.random() * 4));
+  console.log(order)
   arrowArea.classList.add("unclickable");
-  console.log(order[level-1]);
+  console.log(true)
+  // console.log(order[level - 1]);
   for (let i = 0; i < order.length; i++) {
-     switch (order[i]) {
-       case 0: upClick();
-       case 1: leftClick();
-       case 2: downClick();
-       case 3: rightClick();
-     }
-     setInterval(() => {
-      info.innerHTML = "Wait for your turn" , 800
-     }
+    switch (order[i]) {
+      case 0:
+        upComputer();
+        break;
+      case 1:
+        leftComputer();
+        break;
+      case 2:
+        downComputer();
+        break;
+      case 3:
+        rightComputer();
+        break;
+    }
+  }
+  setTimeout(() => {playerRound();}, level * 600 + 1000);
+}
+
+function playerRound () {
+  arrowArea.classList.remove("unclickable");
+  const remainingTaps = order.length - playerOrder.length;
+
+  for (c = 0; c <= remainingTaps; c++) {
+    if (playerOrder[c] === order[c]) {
+    setTimeout(() => {
+    info.innerHTML = `You have to make ${remainingTaps} clicks`;}, 600);
+    
+    }
+    else {
+      alert(`Sorry! \nYou clicked the wrong button. \nYou made it to Level: ${level}. \nWould you like to play again?`);
+      reset();
+    }
   }
 
 }
+
 function playGame() {
   // reset variables to starting point
   reset();
   // defines computer order
-  // setOrder();
-  while (playerOrder[level-1] === order[level-1]) {
-    computerRound();
-    playerRound();
-  }
+  computerRound();
+  // playerRound();
 }
