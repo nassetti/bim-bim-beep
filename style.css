@@ -197,7 +197,16 @@ button:focus {
 #level-text {
   font-weight: bold;
 }
-/* style for start and reset button */
+/* style for start and reset buttons and infor area */
+.start-reset-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.js-info {
+  border: 0.5rem;
+}
 #start-button {
   font-size: 2rem;
 }
