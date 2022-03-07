@@ -4,7 +4,7 @@ A simple Simon Game to help users practice their short-term memory skills.
 ## Features
 * Tutorial Modal
 * Mute Button
-* 
+* Level Counter
 
 ## Testing
 
