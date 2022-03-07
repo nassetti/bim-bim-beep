@@ -20,6 +20,7 @@ const upIcon = document.querySelector("#up-icon");
 const leftIcon = document.querySelector("#left-icon");
 const downIcon = document.querySelector("#down-icon");
 const rightIcon = document.querySelector("#right-icon");
+const arrowArea = document.querySelector(".arrow-area")
 
 const levelCounter = document.querySelector("#level");
 const info = document.querySelector(".js-info");
@@ -41,7 +42,7 @@ startBtn.addEventListener("click", () => {
   resetBtn.classList.remove("hidden");
   console.log("clicked start");
   info.innerHTML = "Wait...";
-  startGame();
+  playGame();
 });
 resetBtn.addEventListener("click", () => {
   startBtn.classList.remove("hidden");
@@ -57,13 +58,13 @@ function reset() {
   levelCounter.innerHTML = 0;
 }
 
-function setOrder() {
-  for (var i = 0; i < 100; i++) {
-    order.push(Math.floor(Math.random() * 4) + 1);
-  }
-  // delete below so user cannot see correct order
-  console.log(order);
-}
+// function setOrder() {
+//   for (var i = 0; i < 100; i++) {
+//     order.push(Math.floor(Math.random() * 4));
+//   }
+//   // delete below so user cannot see correct order
+//   console.log(order);
+// }
 
 // adding user click functionality
 
@@ -72,7 +73,8 @@ function upClick() {
   upDiv.classList.add("activeUp");
   upIcon.classList.add("activeUp");
   upDiv.classList.add("activated");
-  console.log("upClick")
+  console.log("upClick");
+  playerOrder.push(0);
   setTimeout(() => {
     upDiv.classList.remove("activeUp");
     upIcon.classList.remove("activeUp");
@@ -85,7 +87,7 @@ function leftClick() {
   leftIcon.classList.add("activeLeft");
   leftDiv.classList.add("activated");
   console.log("leftClick")
-
+  playerOrder.push(1);
   setTimeout(() => {
     leftDiv.classList.remove("activeLeft");
     leftIcon.classList.remove("activeLeft");
@@ -99,6 +101,7 @@ function downClick() {
   downIcon.classList.add("activeDown");
   downDiv.classList.add("activated");
   console.log("downClick");
+  playerOrder.push(2);
   setTimeout(() => {
     downDiv.classList.remove("activeDown");
     downIcon.classList.remove("activeDown");
@@ -112,6 +115,7 @@ function rightClick() {
   rightIcon.classList.add("activeRight");
   rightDiv.classList.add("activated");
   console.log("rightClick");
+  playerOrder.push(3);
   setTimeout(() => {
     rightDiv.classList.remove("activeRight");
     rightIcon.classList.remove("activeRight");
@@ -133,11 +137,32 @@ rightBtn.addEventListener("click", () => {
   rightClick();
 });
 
+function computerRound() {
+  level += 1;
+  levelCounter.innerHTML = level;
+  order.push(Math.floor(Math.random() * 4));
+  arrowArea.classList.add("unclickable");
+  console.log(order[level-1]);
+  for (let i = 0; i < order.length; i++) {
+     switch (order[i]) {
+       case 0: upClick();
+       case 1: leftClick();
+       case 2: downClick();
+       case 3: rightClick();
+     }
+     setInterval(() => {
+      info.innerHTML = "Wait for your turn" , 800
+     }
+  }
+
+}
 function playGame() {
   // reset variables to starting point
   reset();
   // defines computer order
-  setOrder();
-  //  IMPORTANT: add while loop here
-  computerRound();
+  // setOrder();
+  while (playerOrder[level-1] === order[level-1]) {
+    computerRound();
+    playerRound();
+  }
 }
