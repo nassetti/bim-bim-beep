@@ -58,35 +58,33 @@
         <button class="setting-button grow" id="bell">
           <i class="fa-solid fa-bell fa-2x" id="bell-icon"></i>
         </button>
-        <button class="setting-button grow" id="trophy">
-            <i class="fa-solid fa-trophy fa-2x"></i>
+        <button class="setting-button grow hidden" id="bell-muted">
+          <i class="fa-solid fa-bell-slash fa-2x" id="bell-muted-icon"></i>
         </button>
-        <!-- adding Settings script -->
-        <script src="js/settings.js"></script>
       </div>
       <!-- Virtual arrowkeys area -->
       <div class="arrow-area">
         <div class="row upper">
           <button class="father-button up-btn" data-direction="up" id="up-button">
             <div class="arrow-button" id="up">
-              <i class="fa-solid fa-arrow-up fa-3x" id="up"></i>
+              <i class="fa-solid fa-arrow-up fa-3x" id="up-icon"></i>
             </div>
           </button>
         </div>
         <div class="row lower">
           <button class="father-button left-btn" data-direction="left" id="left-button">
             <div class="arrow-button" id="left">
-              <i class="fa-solid fa-arrow-left fa-3x" id="left"></i>
+              <i class="fa-solid fa-arrow-left fa-3x" id="left-icon"></i>
             </div>
           </button>
           <button class="father-button down-btn" data-direction="down" id="down-button">
-            <div class="arrow-button" id="down">
-              <i class="fa-solid fa-arrow-down fa-3x" id="down"></i>
+            <div class="arrow-button down-btn" id="down">
+              <i class="fa-solid fa-arrow-down fa-3x down-btn" id="down-icon"></i>
             </div>
           </button>
-          <button class="father-button right-button" data-direction="right" id="right-button">
-            <div class="arrow-button" id="right">
-              <i class="fa-solid fa-arrow-right fa-3x" id="right"></i>
+          <button class="father-button right-btn" data-direction="right" id="right-button">
+            <div class="arrow-button right-btn" id="right">
+              <i class="fa-solid fa-arrow-right fa-3x right-btn" id="right-icon"></i>
             </div>
           </button>
         </div>
@@ -101,7 +99,7 @@
       <div class="start-reset-info">
         <div class="js-info">Click START to play</div>
         <div class="start">
-          <button class="js-start" id="start-button">ENTER / START</button>
+          <button class="js-start" id="start-button">START</button>
         </div>
         <div class="reset">
           <button class="js-reset hidden" id="reset-button">RESET</button>
@@ -113,20 +111,23 @@
     <div class="hidden">
       <audio
         src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
-        data-sound="up"
+        data-sound="up" id="up-sound"
       ></audio>
       <audio
         src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
-        data-sound="left"
+        data-sound="left" id="left-sound"
       ></audio>
       <audio
         src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
-        data-sound="down"
+        data-sound="down" id="down-sound"
       ></audio>
       <audio
         src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
-        data-sound="right"
+        data-sound="right" id="right-sound"
       ></audio>
-      <script src="js/game-test.js"></script>
+      <!-- adding Settings script -->
+    <script src="js/settings.js"></script>
+    <!-- adding gameplay script -->
+    <script src="js/click-sound-test.js"></script>
   </body>
 </html>
