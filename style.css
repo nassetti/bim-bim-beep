@@ -226,7 +226,21 @@ button:focus {
   box-shadow: 0 0 50px 1.5rem white !important;
 }
 
+.activeUp {
+  background-color: pink !important;
+}
 
+.activeDown {
+  background-color: aquamarine !important;
+}
+
+.activeLeft {
+  background-color: chartreuse !important;
+}
+
+.activeRight {
+  background-color: lemonchiffon !important;
+}
 /* adding hidden and visible class */
 .hidden {
   display: none;
