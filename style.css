@@ -197,7 +197,7 @@ button:focus {
 #level-text {
   font-weight: bold;
 }
-/* style for start and reset buttons and infor area */
+/* style for start and reset buttons and info area */
 .start-reset-info {
   display: flex;
   flex-direction: column;
@@ -205,7 +205,7 @@ button:focus {
   justify-content: center;
 }
 .js-info {
-  border: 0.5rem;
+  font-size: 2rem;
 }
 #start-button {
   font-size: 2rem;
@@ -232,7 +232,8 @@ button:focus {
   display: none;
 }
 
-/* adding tranlucent class */
-.translucent {
-  opacity: 0.3;
+
+/* adding unclickable class */
+.unclickable {
+  pointer-events: none;
 }
