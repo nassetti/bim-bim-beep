@@ -1,3 +1,5 @@
+// code adapted from https://github.com/beaucarnes/simon-game/blob/master/js/index.js and https://freshman.tech/simon-game/
+
 let order = [];
 let playerOrder = [];
 let maxLevels = 100;
