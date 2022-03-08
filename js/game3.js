@@ -186,9 +186,9 @@ function computerRound() {
   level += 1;
   levelCounter.innerHTML = level;
   order.push(Math.floor(Math.random() * 4));
-  console.log(order)
+  console.log(order);
   arrowArea.classList.add("unclickable");
-  console.log(true)
+  console.log(true);
   // console.log(order[level - 1]);
   for (let i = 0; i < order.length; i++) {
     switch (order[i]) {
@@ -206,31 +206,37 @@ function computerRound() {
         break;
     }
   }
-  setTimeout(() => {playerRound();}, level * 600 + 1000);
+  setTimeout(() => {
+    playerRound();
+  }, level * 600 + 1000);
 }
 
-function playerRound () {
+function playerRound() {
   arrowArea.classList.remove("unclickable");
-  const remainingTaps = order.length - playerOrder.length;
-
-  for (c = 0; c <= remainingTaps; c++) {
-    if (playerOrder[c] === order[c]) {
-    setTimeout(() => {
-    info.innerHTML = `You have to make ${remainingTaps} clicks`;}, 600);
-    
+  var remainingClicks = order.length - playerOrder.length;
+  var clicks = playerOrder.length;
+  if (clicks < order.length) {
+    let c = clicks;
+    if (playerOrder === order && remainingClicks == 0) {
+      info.innerHTML = "Congratulations! Onto the next round!";
+      setTimeout(() => {
+        computerRound();
+      }, 600);
+      console.log(`You have made ${clicks}`);
+    } else if (remainingClicks > 0 && playerOrder[c] === order[c]) {
+      info.innerHTML = `You have made ${clicks} clicks. You have ${remainingClicks} left.`;
+      console.log(`You have made ${clicks}`);
     }
-    else {
-      alert(`Sorry! \nYou clicked the wrong button. \nYou made it to Level: ${level}. \nWould you like to play again?`);
-      reset();
-    }
+  } else {
+    info.innerHTML = `You have made ${clicks} clicks. You have ${remainingClicks} left.`;
+    console.log(`You have made ${clicks}`);
   }
-
 }
 
 function playGame() {
   // reset variables to starting point
   reset();
-  // defines computer order
+  // plays Game
   computerRound();
-  // playerRound();
+  playerRound();
 }
