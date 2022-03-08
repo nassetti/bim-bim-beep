@@ -19,8 +19,8 @@
   </head>
   <body>
     <header class="logo">
-      <h1 id="b">
-        B<span id="e1">E</span><span id="e2">E</span><span id="p">P</span>
+      <h1 id="s">
+        S<span id="i">I</span><span id="m">M</span><span id="o">O</span><span id="n">N</span>
       </h1>
     </header>
 
@@ -52,7 +52,15 @@
               <h1>Instructions: How to Play</h1>
               <button class="close" id="close-tut"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            Tutorial
+            <ol>
+              <li>Press START to begin the game.</li>
+              <li>Simon will activate a directional button.</li>
+              <li>Click the same button that Simon activated.</li>
+              <li>If you got the correct answer Simon will then activate the original button and another.</li>
+              <li>Repeat the pattern by clicking on the buttons in the correct order.</li>
+              <li>Simon will continue by incrementing the number of buttons activated.</li>
+              <li>Keep playing until you are unable to repeat the pattern.</li>
+            </ol>
           </div>
         </div>
         <button class="setting-button grow" id="bell">
@@ -66,24 +74,24 @@
       <div class="arrow-area">
         <div class="row upper">
           <button class="father-button up-btn" data-direction="up" id="up-button">
-            <div class="arrow-button" id="up">
+            <div class="arrow-button" id="up-div">
               <i class="fa-solid fa-arrow-up fa-3x" id="up-icon"></i>
             </div>
           </button>
         </div>
         <div class="row lower">
           <button class="father-button left-btn" data-direction="left" id="left-button">
-            <div class="arrow-button" id="left">
+            <div class="arrow-button" id="left-div">
               <i class="fa-solid fa-arrow-left fa-3x" id="left-icon"></i>
             </div>
           </button>
           <button class="father-button down-btn" data-direction="down" id="down-button">
-            <div class="arrow-button down-btn" id="down">
+            <div class="arrow-button down-btn" id="down-div">
               <i class="fa-solid fa-arrow-down fa-3x down-btn" id="down-icon"></i>
             </div>
           </button>
           <button class="father-button right-btn" data-direction="right" id="right-button">
-            <div class="arrow-button right-btn" id="right">
+            <div class="arrow-button right-btn" id="right-div">
               <i class="fa-solid fa-arrow-right fa-3x right-btn" id="right-icon"></i>
             </div>
           </button>
@@ -128,6 +136,6 @@
       <!-- adding Settings script -->
     <script src="js/settings.js"></script>
     <!-- adding gameplay script -->
-    <script src="js/game2.js"></script>
+    <script src="js/game-clean.js"></script>
   </body>
 </html>
