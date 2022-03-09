@@ -5,7 +5,6 @@ window.addEventListener("DOMContentLoaded", () => {
   let playerOrder = [];
   let level;
   let clicks = 0;
-  let computerClicks = 0;
   let wrong = false;
 
   // linking variables with elements
@@ -56,16 +55,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const sound = document.querySelector(`#${direction}-sound`);
 
     directionDiv.classList.add("activated");
-    directionIcon.classList.add(`active-${direction}`);
     directionDiv.classList.add(`active-${direction}`);
     sound.play();
 
     setTimeout(() => {
       directionDiv.classList.remove("activated");
-      directionIcon.classList.remove(`active-${direction}`);
       directionDiv.classList.remove(`active-${direction}`);
-      // directionIcon.classList.add(`non-active-${direction}`);
-      // directionDiv.classList.add(`non-active-${direction}`);
     }, 300);
   }
 
@@ -75,55 +70,87 @@ window.addEventListener("DOMContentLoaded", () => {
     level += 1;
     levelCounter.innerHTML = level;
     // delete after debug
-    order = [0, 0, 0, 0, 0, 0, 0];
+    // order = [0, 1, 2, 3, 2, 1, 0];
+    let directions = ["up", "left", "down", "right"];
     // this is the code you want to use for incremental levels
-    // order.push(Math.floor(Math.random() * 4));
+    order.push(Math.floor(Math.random() * 4));
     console.log(order);
     arrowArea.classList.add("unclickable");
-    for (i = 0; i < order.length; i++) {
-      // adding button array
-      // therefore, up = 0, left = 1, down = 2, right = 3 based on array start of 0.
-      // console.log(directions[order[i]]);
-      setTimeout(() => {
-        var directions = ["up", "left", "down", "right"];
-        activate(directions[order[i]]);
-      }, order.length * 600);
+
+    const timer = setInterval(timerFunction, 800);
+    let counter = 0;
+    function timerFunction() {
+      if (counter >= order.length) {
+        clearInterval(timer);
+      } else {
+        activate(directions[order[counter]]);
+        counter++;
+      }
     }
   }
-
   // adding user click functionality
   upBtn.addEventListener("click", () => {
     activate("up");
     playerOrder.push(0);
+    clicks += 1;
+    info.innerHTML = `You have ${remainingClicks} clicks to make.`;
   });
   leftBtn.addEventListener("click", () => {
     activate("left");
     playerOrder.push(1);
+    clicks += 1;
+    info.innerHTML = `You have ${remainingClicks} clicks to make.`;
   });
   downBtn.addEventListener("click", () => {
     activate("down");
     playerOrder.push(2);
+    clicks += 1;
+    info.innerHTML = `You have ${remainingClicks} clicks to make.`;
   });
   rightBtn.addEventListener("click", () => {
     activate("right");
     playerOrder.push(3);
+    clicks += 1;
+    console.log(playerOrder);
+    info.innerHTML = `You have ${remainingClicks} clicks to make.`;
   });
-  function playerRound() {
-    playerOrder = [];
-    arrowArea.classList.remove("unclickable");
-    let remainingClicks = order.length - playerOrder.length;
-    while (remainingClicks > 0) {
-      info.innerHTML = `You have ${remainingClicks} clicks to make.`;
+
+  function check() {
+    if (playerOrder === order) {
+      info.innerHTML = "Well done. Onto the next round.";
+      setTimeout(() => computerRound(), 1000);
+    } else if (playerOrder !== order && remainingClicks == 0) {
+      alert(
+        `Sorry you didn't copy the sequence correctly. \n You made it to Level: ${level}. \n Would you like to play again?`
+      );
+      reset();
     }
   }
+  function playerRound() {
+    playerOrder = [];
+    clicks = 0;
+    arrowArea.classList.remove("unclickable");
+    var remainingClicks = order.length - playerOrder.length;
 
-  //   function check() {}
+    info.innerHTML = `You have ${remainingClicks} clicks to make.`;
+    if (playerOrder === order) {
+      info.innerHTML = "Well done. Onto the next round.";
+      setTimeout(() => computerRound(), 1000);
+    }
+    // else if (playerOrder !== order && remainingClicks == 0) {
+    //   alert(
+    //     `Sorry you didn't copy the sequence correctly. \nYou made it to Level: ${level}. \nWould you like to play again?`
+    //   );
+    //   reset();
+    // }
+  }
+
   function playGame() {
     // reset variables to starting point
     reset();
-    // plays Game
-    computerRound();
-    // playerRound();
-    // check();
+    while (wrong == false) {
+      computerRound();
+      playerRound();
+    }
   }
 });
