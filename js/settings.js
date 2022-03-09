@@ -15,7 +15,7 @@ let modals = document.getElementsByClassName("modal")[0];
 var upSound = document.querySelector("#up-sound");
 var downSound = document.querySelector("#down-sound");
 var leftSound = document.querySelector("#left-sound");
-var rightSound = document.querySelector("#up-sound");
+var rightSound = document.querySelector("#right-sound");
 
 // Modal set up
 tutorialBtn.addEventListener("click", () => {
