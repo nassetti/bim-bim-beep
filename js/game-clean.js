@@ -144,7 +144,8 @@ window.addEventListener("DOMContentLoaded", () => {
         } 
         else if (playerOrder[i] == order[i] && playerOrder.length == order.length) {
           info.innerHTML = "Nice work. Onto the next round.";
-          setTimeout(() => computerRound(), 1000)
+          // setTimeout(() => {computerRound()}, 1000);
+          computerRound();
         }
       }
     } else {
