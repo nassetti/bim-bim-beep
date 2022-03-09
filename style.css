@@ -183,7 +183,9 @@ button:focus {
 #right-div {
   background-color: yellow;
 }
-
+i {
+  background-color: transparent !important;
+}
 .father-button {
   background-color: transparent;
   border-style: none;
