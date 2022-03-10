@@ -43,8 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
     arrowArea.classList.remove("unclickable");
     info.innerHTML = "Click START to play";
     levelCounter.innerHTML = 0;
-    console.log(`Reset Order: ${order}`);
-    console.log(`Reset Player Order: ${playerOrder}`);
+    arrowArea.classList.add("unclickable");
   }
 
   //   directions have to be up, left, down, or right
@@ -72,12 +71,8 @@ window.addEventListener("DOMContentLoaded", () => {
     level += 1;
     levelCounter.innerHTML = level;
     console.log(`round begining`);
-    // delete after debug
-    // order = [0, 1, 2, 3, 2, 1, 0];
     let directions = ["up", "left", "down", "right"];
     order.push(Math.floor(Math.random() * 4));
-    console.log(`order: ${order}`);
-    console.log(`order length: ${order.length}`);
     arrowArea.classList.add("unclickable");
 
     const timer = setInterval(timerFunction, 800);
@@ -92,61 +87,81 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
+  // adding clickCounter function
+
+  function clickCounter() {
+    let remainingClicks = order.length - clicks;
+    info.innerHTML = `You have made ${clicks} clicks. You have ${remainingClicks} clicks left.`;
+
+  }
   // adding user click functionality
   upBtn.addEventListener("click", () => {
     activate("up");
     playerOrder.push(0);
     clicks += 1;
+    clickCounter();
     console.log(`clicks made: ${clicks}`);
     console.log(`playerOrder: ${playerOrder}`);
-    checkSequence();
+    if (playerOrder.length == order.length) {
+      checkSequence();
+    }
   });
   leftBtn.addEventListener("click", () => {
     activate("left");
     playerOrder.push(1);
     clicks += 1;
+    clickCounter();
     console.log(`clicks made: ${clicks}`);
     console.log(`playerOrder: ${playerOrder}`);
-    checkSequence();
+    if (playerOrder.length == order.length) {
+      checkSequence();
+    }
   });
   downBtn.addEventListener("click", () => {
     activate("down");
     playerOrder.push(2);
     clicks += 1;
+    clickCounter();
     console.log(`clicks made: ${clicks}`);
     console.log(`playerOrder: ${playerOrder}`);
-    checkSequence();
+    if (playerOrder.length == order.length) {
+      checkSequence();
+    }
   });
   rightBtn.addEventListener("click", () => {
     activate("right");
     playerOrder.push(3);
     clicks += 1;
+    clickCounter();
     console.log(`clicks made: ${clicks}`);
     console.log(`playerOrder: ${playerOrder}`);
-    checkSequence();
+    if (playerOrder.length == order.length) {
+      checkSequence();
+    }
   });
 
   // checks if player input matches computer sequence
   function checkSequence() {
-    let remainingClicks = order.length - clicks;
+    remainingClicks = order.length - clicks;
     let good = true;
     if (playerOrder.length <= order.length) {
       for (i = 0; i < order.length; i++) {
         if (playerOrder[i] == order[i] && playerOrder.length < order.length) {
-          info.innerHTML = `Good work. You have made ${clicks} clicks. You must make ${remainingClicks} more clicks`;
-          good = true;
-        } 
-        else if (playerOrder[i] != order[i] && playerOrder.length == order.length) {
+          // good = true;
+        } else if (
+          playerOrder[i] != order[i] &&
+          playerOrder.length == order.length
+        ) {
           info.innerHTML = `Oops. You've clicked the wrong button`;
           good = false;
           wrong = true;
           checkWrong();
-        } 
-        else if (playerOrder[i] == order[i] && playerOrder.length == order.length) {
-          info.innerHTML = "Nice work. Onto the next round.";
-          // setTimeout(() => {computerRound()}, 1000);
-          computerRound();
         }
+      }
+      if (good == true) {
+        info.innerHTML = "Nice work. Onto the next round.";
+        setTimeout(computerRound, 1000);
       }
     } else {
       alert("Oops you clicked too quickly.");
