@@ -174,7 +174,7 @@ window.addEventListener("DOMContentLoaded", () => {
     playerOrder = [];
     arrowArea.classList.remove("unclickable");
     clicks = 0;
-    info.innerHTML = `You have made ${clicks} clicks. You have ${order.length} clicks left.`;
+    info.innerHTML = `You have ${order.length} clicks left.`;
     checkWrong();
   }
   // checks if sequence is incorrect and resets game
