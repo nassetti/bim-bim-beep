@@ -1,10 +1,16 @@
-# BEEP
+# Simple Simon          
 A simple Simon Game to help users practice their short-term memory skills. 
 
 ## Features
 * Tutorial Modal
 * Mute Button
+    Responsive mute button so that users can toggle between sound functionality. 
+    <img src=readme-assets/sound alt="Image of sound icon">
+    <img src=readme-assets/muted alt="Image of muted icon">
 * Level Counter
+    Counter that highlights the level the user is on that increments as the game continues. 
+    <img src=readme-assets/level-counter alt="Image of level counter">
+
 
 ## Testing
 
