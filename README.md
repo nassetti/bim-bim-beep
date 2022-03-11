@@ -10,21 +10,21 @@ This game was designed to be reminscent of the orignal Simon game that many peop
 
 * Initial Alert
 
-    Though the game is quite simple, it may not be immediately self explanatory unless one is familiar with Simon games. For this reason, an initial alert was added to       explain the basic instructions to the user and inform them how to find the further instructions button.
+    * Though the game is quite simple, it may not be immediately self-explanatory unless one is familiar with Simon games. For this reason, an initial alert was added to       explain the basic instructions to the user and inform them how to find the further instructions button.
     
     <img src=readme-assets/initial-alert.png alt="Image of initial alert">
     
     
 * Tutorial Modal
 
-    Button which changes the visibility of a tutorial modal that explains the rules of the game.
+    * Button which changes the visibility of a tutorial modal that explains the rules of the game.
 
     <img src=readme-assets/instructions-modal.png alt="Image of instructions modal visible" width=80%>
 
 
 * Mute Button
 
-    A mute/unmute button was added to the top right corner of the game area so that users could toggle the sound generation of the game. Though sounds are useful in a       memory game as they interact with auditory memory, they are shrill and may cause some users discomfort. For this reason, the site has a simple button for users to       turn off this function.
+    * A mute/unmute button was added to the top right corner of the game area so that users could toggle the sound generation of the game. Though sounds are useful in a       memory game as they interact with auditory memory, they are shrill and may cause some users discomfort. For this reason, the site has a simple button for users to       turn off this function.
 
     <img src=readme-assets/sound.png alt="Image of sound icon" width=50px height=50px>
 
@@ -32,19 +32,19 @@ This game was designed to be reminscent of the orignal Simon game that many peop
 
 * Level Counter
 
-    Though the level counter is not necessary, as the user knows how many clicks they have to make through the text above the START/RESET buttons, they may find it           useful to see what stage 
+    * Though the level counter is not necessary, as the user knows how many clicks they have to make through the text above the START/RESET buttons, they may find it           useful to see what stage 
 
     <img src=readme-assets/level-counter.png alt="Image of level counter">
 
 * Interactive Arrow Area
 
-    Game area consisting of interactive arrow buttons. Arrow buttons orignally designed for keyboard inputs, but changed to click inputs instead to allow for use on         mobile screens. 
+    * Game area consisting of interactive arrow buttons. Arrow buttons were originally designed for keyboard inputs, but changed to click inputs instead to allow for use on         mobile screens. 
 
     <img src=readme-assets/game-area.png alt="Image of level counter">
     
 * Activated Buttons
 
-    When buttons are activated they change colour and are highlighted by a box shadow. This creates a clear differentiation between the activated button and the original     button, making it apparent to the player which button is being activated. In the below image, all buttons are highlighted as part of testing, but this does not occur     during game play.
+    * When buttons are activated they change colour and are highlighted by a box shadow. This creates a clear differentiation between the activated button and the             original button, making it apparent to the player which button is being activated. In the below image, all buttons are highlighted as part of testing, but this           does not occur during gameplay.
     
      <img src=readme-assets/activated-test.png alt="Image of all buttons activated">
 
@@ -52,33 +52,45 @@ This game was designed to be reminscent of the orignal Simon game that many peop
 ## Testing
 * HTML
 
-    Tested in the HTML W3C validator with no issues highlighted. 
+    * Tested in the HTML W3C validator with no issues highlighted. 
 
     <img src=readme-assets/html-w3c.png alt="Image illustrating no HTML issues">
 
 * CSS
 
-    Tested in the CSS Jigsaw validator with no issues highlighted.
+    * Tested in the CSS Jigsaw validator with no issues highlighted.
 
     <img src=readme-assets/css-w3c.png alt="Image illustrating no CSS issues">
 
 
 * JavaScript
 
-    Tested in the JSHint validator. Some potential issues showing as the JS code has some code only available in ES6. 
+    * Tested in the JSHint validator. Some potential issues show as the JS code has some code only available in ES6. 
 
 * Github Pages
 
-    Tested in GitPod live server as well as Github Pages. 
+    * Tested in GitPod live server as well as Github Pages. 
 
 * Mobile Size
 
-    Media query written for screen sizes under 700px in width. This means users can interact with the page under most screen conditions.
+    * Media query written for screen sizes under 700px in width. This means users can interact with the page under most screen conditions.
 
     <img src=readme-assets/mobile-test.png alt="Image illustrating mobile screen test">
+    
+* Browser
+
+     * Github Page tested in Firefox, Safari, Edge, and Chrome and all operating as expected. 
 
 
+## Potential Features in Future Iterations
 
+* Keyboard Functionality
+
+     * As the game was originally designed for keyboard functionality and was adapted to allow clicks instead in future iterations I would hope to add functionality          that allows the user to utilise both means of interacting with the game. 
+
+* Failure Sequence
+
+     * In its current state, though the game does have a failure mechanism that triggers when the user input does not match that of the computer, it only triggers when        the user has zero clicks left. In future iterations, it would be good for the failure mechanism to be triggered as soon as the pattern differs from the expect            sequence. 
 
 ## References
 [Freshman: Build a Simon Game](https://freshman.tech/simon-game/)
