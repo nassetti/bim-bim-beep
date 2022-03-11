@@ -15,10 +15,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const rightBtn = document.querySelector(".right-btn");
   const leftBtn = document.querySelector(".left-btn");
   const arrowArea = document.querySelector(".arrow-area");
-
   const levelCounter = document.querySelector("#level");
   const info = document.querySelector(".js-info");
-
+  arrowArea.classList.add("unclickable");
+  
   // adding start and reset functionality on click
   startBtn.addEventListener("click", () => {
     startBtn.classList.add("hidden");
@@ -34,13 +34,17 @@ window.addEventListener("DOMContentLoaded", () => {
     reset();
   });
 
+  // initial alert
+  alert(
+    "This is a Simple Simon Game. Click Start and repeat the computers pattern. Click the bell icon in the upper right corner to mute and the question mark for a tutorial on how to play. Enjoy!"
+  );
+
   function reset() {
     wrong = false;
     order = [];
     playerOrder = [];
     level = 0;
     clicks = 0;
-    arrowArea.classList.remove("unclickable");
     info.innerHTML = "Click START to play";
     levelCounter.innerHTML = 0;
     arrowArea.classList.add("unclickable");
@@ -48,8 +52,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //   directions have to be up, left, down, or right
   function activate(direction) {
-    const directionButton = document.querySelector(`#${direction}-button`);
-    const directionIcon = document.querySelector(`#${direction}-icon`);
     const directionDiv = document.querySelector(`#${direction}-div`);
     const sound = document.querySelector(`#${direction}-sound`);
 
@@ -89,12 +91,11 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   // adding clickCounter function
-
   function clickCounter() {
     let remainingClicks = order.length - clicks;
     info.innerHTML = `You have made ${clicks} clicks. You have ${remainingClicks} clicks left.`;
-
   }
+  
   // adding user click functionality
   upBtn.addEventListener("click", () => {
     activate("up");
@@ -148,7 +149,6 @@ window.addEventListener("DOMContentLoaded", () => {
     if (playerOrder.length <= order.length) {
       for (i = 0; i < order.length; i++) {
         if (playerOrder[i] == order[i] && playerOrder.length < order.length) {
-          // good = true;
         } else if (
           playerOrder[i] != order[i] &&
           playerOrder.length == order.length
