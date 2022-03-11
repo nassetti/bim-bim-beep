@@ -1,6 +1,5 @@
 // code adapted from https://github.com/beaucarnes/simon-game/blob/master/js/index.js and https://freshman.tech/simon-game/
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
   let order = [];
   let playerOrder = [];
   let level;
@@ -23,7 +22,6 @@ window.addEventListener("DOMContentLoaded", () => {
   startBtn.addEventListener("click", () => {
     startBtn.classList.add("hidden");
     resetBtn.classList.remove("hidden");
-    console.log("clicked start");
     info.innerHTML = "Wait...";
     playGame();
   });
@@ -72,7 +70,6 @@ window.addEventListener("DOMContentLoaded", () => {
     info.innerHTML = "Wait for the computer ...";
     level += 1;
     levelCounter.innerHTML = level;
-    console.log(`round begining`);
     let directions = ["up", "left", "down", "right"];
     order.push(Math.floor(Math.random() * 4));
     arrowArea.classList.add("unclickable");
@@ -102,8 +99,6 @@ window.addEventListener("DOMContentLoaded", () => {
     playerOrder.push(0);
     clicks += 1;
     clickCounter();
-    console.log(`clicks made: ${clicks}`);
-    console.log(`playerOrder: ${playerOrder}`);
     if (playerOrder.length == order.length) {
       checkSequence();
     }
@@ -113,8 +108,6 @@ window.addEventListener("DOMContentLoaded", () => {
     playerOrder.push(1);
     clicks += 1;
     clickCounter();
-    console.log(`clicks made: ${clicks}`);
-    console.log(`playerOrder: ${playerOrder}`);
     if (playerOrder.length == order.length) {
       checkSequence();
     }
@@ -124,8 +117,6 @@ window.addEventListener("DOMContentLoaded", () => {
     playerOrder.push(2);
     clicks += 1;
     clickCounter();
-    console.log(`clicks made: ${clicks}`);
-    console.log(`playerOrder: ${playerOrder}`);
     if (playerOrder.length == order.length) {
       checkSequence();
     }
@@ -135,8 +126,6 @@ window.addEventListener("DOMContentLoaded", () => {
     playerOrder.push(3);
     clicks += 1;
     clickCounter();
-    console.log(`clicks made: ${clicks}`);
-    console.log(`playerOrder: ${playerOrder}`);
     if (playerOrder.length == order.length) {
       checkSequence();
     }
