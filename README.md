@@ -32,7 +32,7 @@ This game was designed to be reminscent of the orignal Simon game that many peop
 
 * Level Counter
 
-    * Though the level counter is not necessary, as the user knows how many clicks they have to make through the text above the START/RESET buttons, they may find it           useful to see what stage 
+    * Though the level counter is not necessary, as the user knows how many clicks they have to make through the text above the START/RESET buttons, they may find it           useful to see what stage of the game they are in. 
 
     <img src=readme-assets/level-counter.png alt="Image of level counter">
 
